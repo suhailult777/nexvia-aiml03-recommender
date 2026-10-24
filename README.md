@@ -214,7 +214,9 @@ Endpoints:
 
 `k` is validated to 1..50; `k=51` returns HTTP 422.
 
-Real captured response (`results/api_response.json`, HTTP 200, warm request):
+Real captured response (`results/api_response.json`, HTTP 200, warm request,
+trimmed to the first 3 of 10 recommendations for readability; the file has all
+10):
 
 ```json
 {
@@ -327,7 +329,7 @@ AIML-03/
 ```
 C:/Python312/python.exe -m pytest tests/ -v
 ...
-8 passed, 1 warning in 15.40s
+8 passed, 1 warning in 20.02s
 ```
 
 The warning is a numpy deprecation inside the `faiss` loader, not project code.
