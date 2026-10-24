@@ -1,0 +1,1 @@
+{"status":"ok","users":943,"items":1682,"faiss_vectors":1682,"faiss_index":"IndexFlatIP","embedding_dim":64,"retrieval_k":200,"cold_start_threshold":3,"ranker":"wide_and_deep_mlp"}

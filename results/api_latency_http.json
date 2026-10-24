@@ -1,0 +1,33 @@
+{
+  "captured_at": "2026-10-24T15:53:28+00:00",
+  "endpoint": "GET /recommend?user_id=7&k=10",
+  "requests": 20,
+  "warmup_requests_before": 6,
+  "latency_ms_raw": [
+    3.501,
+    3.083,
+    6.172,
+    3.433,
+    4.307,
+    4.703,
+    3.264,
+    6.698,
+    2.909,
+    4.828,
+    3.031,
+    4.029,
+    4.7,
+    3.655,
+    5.34,
+    3.095,
+    4.353,
+    2.96,
+    3.101,
+    4.196
+  ],
+  "median_ms": 3.842,
+  "mean_ms": 4.068,
+  "min_ms": 2.909,
+  "max_ms": 6.698,
+  "note": "server-side latency_ms field read over HTTP from uvicorn on 127.0.0.1:8011, sequential requests, includes JSON serialisation of the response"
+}

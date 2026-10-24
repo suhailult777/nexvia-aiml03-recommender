@@ -1,0 +1,86 @@
+{
+  "train_rows": 65690,
+  "val_rows": 7290,
+  "positives": 25830,
+  "negatives": 47150,
+  "train_seconds": 19.05,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.63057,
+      "val_loss": 0.55851,
+      "val_auc": 0.76482
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.53265,
+      "val_loss": 0.50883,
+      "val_auc": 0.80094
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.48751,
+      "val_loss": 0.46955,
+      "val_auc": 0.83416
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.45859,
+      "val_loss": 0.46448,
+      "val_auc": 0.84649
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.45113,
+      "val_loss": 0.44988,
+      "val_auc": 0.84999
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.44254,
+      "val_loss": 0.44857,
+      "val_auc": 0.85208
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.43859,
+      "val_loss": 0.44066,
+      "val_auc": 0.85539
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.43465,
+      "val_loss": 0.43805,
+      "val_auc": 0.85621
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.43142,
+      "val_loss": 0.43529,
+      "val_auc": 0.85817
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.42873,
+      "val_loss": 0.43396,
+      "val_auc": 0.8587
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.42656,
+      "val_loss": 0.43184,
+      "val_auc": 0.86008
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.42469,
+      "val_loss": 0.43247,
+      "val_auc": 0.86002
+    }
+  ],
+  "final_val_auc": 0.86002,
+  "final_train_loss": 0.42469,
+  "n_features": 140,
+  "hard_negative_source": "FAISS top 200 from the two-tower, seen items removed",
+  "val_split": "94 users held out of ranker training"
+}

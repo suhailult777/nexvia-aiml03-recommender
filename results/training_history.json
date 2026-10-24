@@ -1,0 +1,127 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 6.654513
+    },
+    {
+      "epoch": 2,
+      "loss": 6.393414
+    },
+    {
+      "epoch": 3,
+      "loss": 6.246074
+    },
+    {
+      "epoch": 4,
+      "loss": 6.188381
+    },
+    {
+      "epoch": 5,
+      "loss": 6.147455
+    },
+    {
+      "epoch": 6,
+      "loss": 6.123621
+    },
+    {
+      "epoch": 7,
+      "loss": 6.100026
+    },
+    {
+      "epoch": 8,
+      "loss": 6.08881
+    },
+    {
+      "epoch": 9,
+      "loss": 6.078968
+    },
+    {
+      "epoch": 10,
+      "loss": 6.063532
+    },
+    {
+      "epoch": 11,
+      "loss": 6.044839
+    },
+    {
+      "epoch": 12,
+      "loss": 6.039114
+    },
+    {
+      "epoch": 13,
+      "loss": 6.030603
+    },
+    {
+      "epoch": 14,
+      "loss": 6.022555
+    },
+    {
+      "epoch": 15,
+      "loss": 6.011812
+    },
+    {
+      "epoch": 16,
+      "loss": 6.007705
+    },
+    {
+      "epoch": 17,
+      "loss": 6.001591
+    },
+    {
+      "epoch": 18,
+      "loss": 5.995785
+    },
+    {
+      "epoch": 19,
+      "loss": 5.987255
+    },
+    {
+      "epoch": 20,
+      "loss": 5.980719
+    },
+    {
+      "epoch": 21,
+      "loss": 5.975883
+    },
+    {
+      "epoch": 22,
+      "loss": 5.971955
+    },
+    {
+      "epoch": 23,
+      "loss": 5.96481
+    },
+    {
+      "epoch": 24,
+      "loss": 5.960808
+    },
+    {
+      "epoch": 25,
+      "loss": 5.956037
+    }
+  ],
+  "train_seconds": 72.65,
+  "epochs": 25,
+  "batch_size": 1024,
+  "pairs_per_epoch": 80000,
+  "temperature": 0.1,
+  "optimizer": "Adam lr=0.01",
+  "embed_dim": 64,
+  "saved": {
+    "user_embeddings": "C:\\Users\\suhai\\Documents\\Codex\\2026-09-20\\lo\\nexvia-capstones\\AIML-03\\artifacts\\user_embeddings.npy",
+    "item_embeddings": "C:\\Users\\suhai\\Documents\\Codex\\2026-09-20\\lo\\nexvia-capstones\\AIML-03\\artifacts\\item_embeddings.npy",
+    "user_tower": "C:\\Users\\suhai\\Documents\\Codex\\2026-09-20\\lo\\nexvia-capstones\\AIML-03\\artifacts\\user_tower.keras",
+    "item_tower": "C:\\Users\\suhai\\Documents\\Codex\\2026-09-20\\lo\\nexvia-capstones\\AIML-03\\artifacts\\item_tower.keras",
+    "user_embedding_shape": [
+      943,
+      64
+    ],
+    "item_embedding_shape": [
+      1682,
+      64
+    ]
+  },
+  "n_users": 943,
+  "n_items": 1682
+}

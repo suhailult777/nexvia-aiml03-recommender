@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-10-24T15:43:30+00:00",
+  "dataset": {
+    "name": "MovieLens 100K",
+    "n_ratings": 100000,
+    "n_users": 943,
+    "n_items": 1682,
+    "n_train": 80000,
+    "n_test": 20000,
+    "split_rule": "per user: sort interactions by timestamp ascending, last 20 percent (rounded, minimum 1) is test, the rest is train",
+    "global_max_train_datetime_utc": "1998-04-22 23:10:38",
+    "global_min_test_datetime_utc": "1997-09-20 20:18:15",
+    "test_fraction_actual": 0.2,
+    "interaction_definition": "every rating row is an implicit positive interaction"
+  },
+  "config": {
+    "embed_dim": 64,
+    "retrieval_k": 200,
+    "test_fraction": 0.2,
+    "cold_start_max_history": 3,
+    "k_list": [
+      10,
+      50
+    ],
+    "seed": 42
+  },
+  "systems": {
+    "popularity": {
+      "recall@10": 0.058704,
+      "ndcg@10": 0.11278,
+      "recall@50": 0.196304,
+      "ndcg@50": 0.146869,
+      "n_users_evaluated": 943
+    },
+    "two_tower_retrieval": {
+      "recall@10": 0.10893,
+      "ndcg@10": 0.178668,
+      "recall@50": 0.362526,
+      "ndcg@50": 0.251754,
+      "n_users_evaluated": 943
+    },
+    "two_stage": {
+      "recall@10": 0.111142,
+      "ndcg@10": 0.183709,
+      "recall@50": 0.356933,
+      "ndcg@50": 0.251074,
+      "n_users_evaluated": 943
+    }
+  },
+  "candidate_coverage": {
+    "k": 200,
+    "mean_candidates_per_user": 200.0,
+    "mean_seen_items_per_user": 84.84,
+    "candidate_recall_all_test_items": 0.59845,
+    "note": "share of all test interactions that appear somewhere in the 200 candidates handed to the ranker; this is the ceiling for stage two"
+  },
+  "cold_start": {
+    "threshold_rule": "users with fewer than 3 training interactions",
+    "real_test_users_below_threshold": 0,
+    "real_test_users_total": 943,
+    "real_cold_user_ids": [],
+    "min_train_history_in_dataset": 16,
+    "simulation": {
+      "n_users": 60,
+      "seed_items_per_user": 2,
+      "scoring": "0.6 * normalized popularity + 0.4 * genre affinity",
+      "fallback": {
+        "recall@10": 0.036756,
+        "ndcg@10": 0.058995,
+        "recall@50": 0.141972,
+        "ndcg@50": 0.097914,
+        "n_users_evaluated": 60
+      },
+      "popularity_only_same_users": {
+        "recall@10": 0.033867,
+        "ndcg@10": 0.059031,
+        "recall@50": 0.12519,
+        "ndcg@50": 0.089985,
+        "n_users_evaluated": 60
+      },
+      "note": "simulated by giving existing users a 2 item seed profile; the fallback never reads a user id or user embedding, so this is the same code path a brand new user hits"
+    }
+  },
+  "ranking_model": {
+    "val_auc": 0.86002,
+    "train_rows": 65690,
+    "val_rows": 7290,
+    "train_seconds": 19.05
+  },
+  "retrieval_model": {
+    "final_train_loss": 5.956037,
+    "epochs": 25,
+    "train_seconds": 72.65,
+    "pairs_per_epoch": 80000
+  },
+  "eval_seconds": 5.02,
+  "n_users_evaluated": 943
+}
