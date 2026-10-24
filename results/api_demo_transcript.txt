@@ -1,0 +1,15 @@
+REAL TERMINAL SESSION, captured 2026-10-24 22:14:59 IST on this machine
+
+$ uvicorn src.serve:app --host 127.0.0.1 --port 8011
+
+$ curl -s http://127.0.0.1:8011/health
+{"status":"ok","users":943,"items":1682,"faiss_vectors":1682,"faiss_index":"IndexFlatIP","embedding_dim":64,"retrieval_k":200,"cold_start_threshold":3,"ranker":"wide_and_deep_mlp"}
+
+$ curl -s 'http://127.0.0.1:8011/recommend?user_id=1&k=5'
+{"user_id":1,"k":5,"cold_start":false,"strategy":"two_stage_faiss_ranker","history_length":218,"n_candidates":200,"latency_ms":48.202,"recommendations":[{"rank":1,"item_id":222,"title":"Star Trek: First Contact (1996)","genres":["Action","Adventure","Sci-Fi"],"score":0.845366},{"rank":2,"item_id":100,"title":"Fargo (1996)","genres":["Crime","Drama","Thriller"],"score":0.824011},{"rank":3,"item_id":258,"title":"Contact (1997)","genres":["Drama","Sci-Fi"],"score":0.758341},{"rank":4,"item_id":455,"title":"Jackie Chan's First Strike (1996)","genres":["Action"],"score":0.757645},{"rank":5,"item_id":228,"title":"Star Trek: The Wrath of Khan (1982)","genres":["Action","Adventure","Sci-Fi"],"score":0.744841}]}
+
+$ curl -s 'http://127.0.0.1:8011/recommend?user_id=999999&k=3'
+{"user_id":999999,"k":3,"cold_start":true,"strategy":"cold_start_popularity","history_length":0,"n_candidates":1682,"latency_ms":1.112,"recommendations":[{"rank":1,"item_id":50,"title":"Star Wars (1977)","genres":["Action","Adventure","Romance","Sci-Fi","War"],"score":1.0},{"rank":2,"item_id":100,"title":"Fargo (1996)","genres":["Crime","Drama","Thriller"],"score":0.902857},{"rank":3,"item_id":258,"title":"Contact (1997)","genres":["Drama","Sci-Fi"],"score":0.885714}]}
+
+$ curl -s -o /dev/null -w '%{http_code}' 'http://127.0.0.1:8011/recommend?user_id=1&k=51'
+422 (k is validated to 1..50)
