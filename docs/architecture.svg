@@ -93,7 +93,7 @@
   <text x="928" y="740" font-size="15" font-weight="700" fill="#334155">Cold start fallback</text>
   <text x="928" y="764" font-size="12" fill="#475569">fewer than 3 interactions</text>
   <text x="928" y="782" font-size="12" fill="#475569">0.6 popularity + 0.4 genre affinity</text>
-  <path d="M 908 760 H 890" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 1035 810 V 895 H 886" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
 
   <path d="M 600 810 V 844" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
 
