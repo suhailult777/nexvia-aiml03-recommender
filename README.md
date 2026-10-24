@@ -2,9 +2,10 @@
 
 A two-stage recommender on MovieLens 100K. Stage one is a two-tower retrieval
 model that turns every user and every movie into a 64 dimensional vector and
-uses FAISS to pull 200 candidates out of the catalog in under a millisecond.
-Stage two is a wide and deep ranker that re-scores those 200 candidates and
-returns the top 10. A FastAPI service exposes both stages on port 8011.
+uses FAISS to pull 200 candidates out of the catalog in about 0.7 milliseconds
+on average. Stage two is a wide and deep ranker that re-scores those 200
+candidates and returns the top 10. A FastAPI service exposes both stages on
+port 8011.
 
 Everything in this README was measured on the machine that built it: Windows 11,
 CPU only, Python 3.12, no GPU, no Spark, no Redis, no Triton, no Airflow.
@@ -238,10 +239,11 @@ trimmed to the first 3 of 10 recommendations for readability; the file has all
 }
 ```
 
-The first request after startup took 54.588 ms because of lazy allocation in
-FAISS and torch; after that it settles. The file above is a warm call and is
-the exact body curl received. `results/api_response_first_call.json` keeps the
-cold first call so the 54.588 ms is not quietly dropped.
+The first request after startup took 54.588 ms; later calls are an order of
+magnitude faster, which is consistent with lazy allocation inside FAISS and
+torch. The file above is a warm call and is the exact body curl received.
+`results/api_response_first_call.json` keeps the cold first call so the
+54.588 ms is not quietly dropped.
 
 `results/api_health.json`:
 
@@ -332,7 +334,10 @@ C:/Python312/python.exe -m pytest tests/ -v
 8 passed, 1 warning in 20.02s
 ```
 
-The warning is a numpy deprecation inside the `faiss` loader, not project code.
+Test wall time moves between roughly 13 s and 20 s across runs on this machine
+(import cost dominates); the pass count does not. The warning is a numpy
+deprecation inside the `faiss` loader, not project code.
+
 What the tests assert:
 
 1. every required artifact exists
